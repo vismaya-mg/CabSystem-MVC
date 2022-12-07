@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Cab>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container-fluid">
+    @if (Model.Any())
+    {
+        <div class="row gap-5">
+            @foreach (var item in Model)
+            {
+                <div class="card col-sm-3 shadow btn-warning">
+
+                    <div class="card-body">
+                        <h2>@item.Model</h2>
+                        <p>@item.Vehicle</p>
+                        <p>@item.VechicleNumber</p>
+                        <p>@item.Description</p>
+                    </div>
+                    <div class="card-footer d-flex">
+                        <div class="btn-group ms-auto">
+                            <a asp-action="EditCab" asp-controller="Driver" asp-area="Drivers" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Do you want to delete this flight?')">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+       
+        <div class="d-flex">
+                        No cab were found. Please
+
+            <a asp-action="AddCab" class="btn btn-primary ms-auto my-2">Add Cab</a>
+        </div>
+
+    }
+</div>

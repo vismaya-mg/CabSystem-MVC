@@ -1,0 +1,42 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+ }
+
+
+    <section class="vh-100">
+        <div class="container-fluid ">
+            <div class="row align-items-center" style="margin-top:-150px;">
+                <div class=" col-lg-6 col-xl-5">
+                  <img style="height: 700px;width:150%;
+                    margin-left: -93px;
+                    margin-top:0px" src="~/image/1236.jpg" />
+                </div>
+                <div class="col-md-8 col-lg-4 offset-xl-1">
+                    <form method="post">
+                    <div style="margin-left:25%;margin-right:-25%;">
+                        <label style="color:black;font-family:Lucida Console;font-size:xx-large;">Login</label>
+                        <br><br><br>
+                        <label asp-for="Email" style="color:black;font-family:Lucida Console;font-size:large;"></label> 
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    <div style="margin-left:25%;margin-right:-25%;">
+                        <label asp-for="Password" style="color:black;font-family:Lucida Console;font-size:large;"></label><br>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    <div class="d-grid mt-4" style="margin-left:25%;margin-right:-25%;">
+                            <button class="btn btn-warning">Login</button>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <br>
+                        <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:small">Don't have an account? 
+                            <a asp-action="Register" class="link-dark">Register here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
