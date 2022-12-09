@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "ViewRequest";
+}
+
+<h1>ViewRequest</h1>
+<hr />
+
+
+<table class="table table-striped">
+    <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Driver Name</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Status</th>
+
+
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.From</td>
+            <td>@book.To</td>
+            <td>@book.DriverName</td>
+            <td>@book.Price</td>
+            <td>@book.Date</td>
+            <td>@book.Status</td>
+            <td>@book.Payment</td>
+            <td>
+                <div class="btn-group ms-auto">
+                    <a asp-action="UpdateRequest" asp-controller="Driver" asp-area="Drivers" asp-route-id="@book.Id" class="btn btn-primary">Approve </a>
+                </div>
+                   
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

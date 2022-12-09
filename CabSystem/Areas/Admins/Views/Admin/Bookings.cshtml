@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h1> Booking</h1>
+<hr />
+
+
+<table class="table table-striped">
+    <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Driver Name</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Status</th>
+
+
+
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.From</td>
+            <td>@book.To</td>
+            <td>@book.DriverName</td>
+            <td>@book.Price</td>
+            <td>@book.Date</td>
+            <td>@book.Status</td>
+            <td>@book.Payment</td>
+
+            <td>
+               
+                   
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

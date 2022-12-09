@@ -35,7 +35,10 @@
                                     <a asp-action="EditProfile" asp-controller="User"  asp-area="Users" class="nav-link text-warning">Update Profile</a>
                                 </li>
                                   <li class="nav-item" style="position:absolute;right:10%">
-                                <a asp-action="BookCab" class="btn btn-warning ms-auto my-2" >Book A Cab</a>
+                                <a asp-action="Booking" class="btn btn-warning ms-auto my-2" >Book A Cab</a>
+                                </li>
+                                <li class="nav-item" style="position:absolute;right:50%">
+                                    <a asp-action="ViewRequest" class="btn btn-warning ms-auto my-2">Booking</a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-action="Logout" asp-controller="Account" asp-area="" class="nav-link text-warning">Logout</a>
@@ -54,11 +57,12 @@
                                     <a asp-action="Logout" asp-controller="Account" asp-area="" class="nav-link text-warning">Logout</a>
                                 </li>
                                  <li class="nav-item" style="position:absolute;right:10%">
-                                <a asp-action="ViewCustomer" class="btn btn-warning ms-auto my-2" >View Customer</a>
+                                <a asp-action="ViewCustomer" class="btn btn-warning ms-auto my-2" >View Users</a>
                                 </li>
                                 <li class="nav-item" style="position:absolute;right:30%">
-                                <a asp-action="ViewDriver" class="btn btn-warning ms-auto my-2">View Driver</a>
+                                    <a asp-action="Bookings" class="btn btn-warning ms-auto my-2">View Booking</a>
                                 </li>
+
                             }
                             @if (User.IsInRole("CabDriver"))
                             {
@@ -73,6 +77,9 @@
                                 </li>
                                  <li class="nav-item" style="position:absolute;right:30%">
                                     <a asp-action="ViewLocation" class="btn btn-warning ms-auto my-2">View Location</a>
+                                </li>
+                                <li class="nav-item" style="position:absolute;right:50%">
+                                    <a asp-action="ViewRequest" class="btn btn-warning ms-auto my-2">View Request</a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-action="Logout" asp-controller="Account" asp-area="" class="nav-link text-warning">Logout</a>

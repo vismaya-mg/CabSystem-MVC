@@ -24,13 +24,26 @@ namespace CabSystem.Areas.Admins.Controllers
             return View(db.ApplicationUsers.ToList());
 
         }
-        public IActionResult ViewDriver()
+        public IActionResult Bookings()
         {
-            //if(User.IsInRole("CabDriver"))
-            return View(db.ApplicationUsers.ToList());
-            //var user = await userManager.GetUserAsync(User);
-            //var Driver = await db.Where(m => m.us == user.Id).ToListAsync();
-            //return View(Driver);
+            return View(db.Books.ToList());
+
+        }
+        public async Task<IActionResult>  ViewDriver()
+        {
+
+           var driver= db.ApplicationUsers.ToList();
+            var drivers = new List<ApplicationUser>();
+            foreach(var item in driver)
+            {
+                if (await userManager.IsInRoleAsync(item,"CabDriver"))
+                {
+                    drivers = db.ApplicationUsers.ToList();
+                }
+                
+            }
+
+            return View(drivers);
         }
         public async Task<IActionResult> Edit(string id)
         {

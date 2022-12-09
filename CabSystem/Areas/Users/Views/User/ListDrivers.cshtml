@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Location>
+@{
+    ViewData["Title"] = "ListDrivers";
+}
+
+
+
+<h1>Driver And Cab  Details</h1>
+<hr />
+<form method="post">
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Driver Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Cost</th>
+        <th>Cab Name</th>
+       
+
+    </tr>
+    @foreach (var loc in Model)
+    {
+        <tr>
+            <td>@loc.User.FirstName</td>
+            <td>@loc.From</td>
+            <td>@loc.To</td>
+            <td>@loc.Cost</td>
+            <td>@loc.User.Cab.Vehicle</td>
+   
+
+            <td>
+                <div class="btn-group ms-auto">
+                        <a  asp-action="BookConfirm"  class="btn btn-primary">Send Request </a>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+    
+    </form>

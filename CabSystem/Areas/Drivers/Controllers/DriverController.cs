@@ -1,7 +1,4 @@
-﻿using CabSystem.Models.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-
-namespace CabSystem.Areas.Drivers.Controllers
+﻿namespace CabSystem.Areas.Drivers.Controllers
 {
     [Area("Drivers")]
 
@@ -21,7 +18,7 @@ namespace CabSystem.Areas.Drivers.Controllers
             var user = await userManager.GetUserAsync(User);
             var locDetails = await db.Cabs.Where(m => m.UserId == user.Id).ToListAsync();
             return View(locDetails);
-           
+
         }
         [HttpGet]
         public IActionResult AddCab()
@@ -82,9 +79,9 @@ namespace CabSystem.Areas.Drivers.Controllers
         }
         [HttpGet]
 
-        public  IActionResult AddLocation()
+        public IActionResult AddLocation()
         {
-             return View();
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddLocation(LocationViewModel model)
@@ -96,14 +93,14 @@ namespace CabSystem.Areas.Drivers.Controllers
             }
             db.Locations.Add(new Location()
             {
-             From=model.From,
-             To=model.To,
-             UserId = user.Id,
+                From = model.From,
+                To = model.To,
+                UserId = user.Id,
             });
             await db.SaveChangesAsync();
             return RedirectToAction("Index", "Driver", new { Area = "Drivers" });
         }
-        
+
         public async Task<IActionResult> ViewLocation()
         {
             var user = await userManager.GetUserAsync(User);
@@ -111,7 +108,7 @@ namespace CabSystem.Areas.Drivers.Controllers
             return View(locDetails);
 
         }
-    
+
         public async Task<IActionResult> Delete(int id)
         {
             var vehicles = await db.Cabs.FindAsync(id);
@@ -131,6 +128,30 @@ namespace CabSystem.Areas.Drivers.Controllers
             db.Locations.Remove(Loc);
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+        [HttpGet]
+
+        public async Task<IActionResult> ViewRequest()
+        {
+            var user = await userManager.GetUserAsync(User);
+            var locDetails = await db.Books.Where(m => m.DriverName == user.FirstName).ToListAsync();
+            return View(locDetails);
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateRequest(int id)
+        {
+            var bk = await db.Books.FindAsync(id);
+            Console.WriteLine("Your id" +id);
+            if (bk == null)
+            {
+                return NotFound();
+            }
+
+            bk.Status = "Approved";
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(ViewRequest));
         }
     }
 }

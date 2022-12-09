@@ -11,11 +11,15 @@
         public DateTime Date { get; set; }
         public int Price { get; set; }
 
-        public int Uid { get; set; }
-        public ApplicationUser Driver { get; set; }
+        public string DriverName { get; set; }
+        public ApplicationUser User { get; set; }
 
-        [ForeignKey(nameof(Driver))]
-        public String DriverId { get; set; }
+        [ForeignKey(nameof(User))]
+        public String UserId { get; set; }
+
+        public String Payment { get; set; }
+
+        public string Status { get; set; }
 
     }
 }

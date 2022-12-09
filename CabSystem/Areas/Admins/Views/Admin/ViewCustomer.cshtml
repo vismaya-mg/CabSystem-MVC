@@ -6,12 +6,15 @@
 <div class="container-fluid">
     @if (Model.Any())
     {
+        
         <div class="row gap-5">
             @foreach (var item in Model)
             {
-                <div class="card col-sm-3 btn-warning">
-                    <div class="card-body">
-                        
+                if (@item.FirstName != "Admin")
+                {
+                    <div class="card col-sm-3 btn-warning">
+                        <div class="card-body">
+                       
                         <h6>@item.FirstName</h6>
                         <h6>@item.LastName</h6>
                         <h6>@item.Email</h6>
@@ -23,6 +26,7 @@
                         </div>
                     </div>
                 </div>
+                }
             }
         </div>
     }

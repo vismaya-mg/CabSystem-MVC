@@ -6,26 +6,25 @@
 
 <h1>Booking</h1>
 
-<h4>BookViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="LocationSearch">
+        <form asp-action="Booking">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="From" class="control-label"></label>
-                <input asp-for="From" class="form-control" />
-                <span asp-validation-for="From" class="text-danger"></span>
+                <label asp-for="Pickup" class="control-label"></label>
+                <input asp-for="Pickup" class="form-control" />
+                <span asp-validation-for="Pickup" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="To" class="control-label"></label>
-                <input asp-for="To" class="form-control" />
-                <span asp-validation-for="To" class="text-danger"></span>
+                <label asp-for="Drop" class="control-label"></label>
+                <input asp-for="Drop" class="form-control" />
+                <span asp-validation-for="Drop" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
+                <label asp-for="DateTime" class="control-label"></label>
+                <input asp-for="DateTime" class="form-control" />
+                <span asp-validation-for="DateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
             <button class="btn btn-warning">Search</button>
